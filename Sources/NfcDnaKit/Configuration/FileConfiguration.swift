@@ -57,4 +57,8 @@ public class FileConfiguration {
     public var sdmReadCounterLimit: Int?
      
     //     val SDM_READ_COUNTER_NO_MIRRORING = 16777215
+    
+    public init {
+        
+    }
 }
