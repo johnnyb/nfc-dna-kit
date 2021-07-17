@@ -29,7 +29,7 @@ public class TagConfiguration {
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     ]
     
-    public init {
+    public init() {
         
     }
 }

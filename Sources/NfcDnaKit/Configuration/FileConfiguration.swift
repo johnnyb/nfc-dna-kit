@@ -58,7 +58,7 @@ public class FileConfiguration {
      
     //     val SDM_READ_COUNTER_NO_MIRRORING = 16777215
     
-    public init {
+    public init() {
         
     }
 }

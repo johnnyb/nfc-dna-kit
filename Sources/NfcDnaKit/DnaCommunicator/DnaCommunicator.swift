@@ -47,7 +47,7 @@ public class DnaCommunicator {
     let DF_FILE_ID: Int = 0xe110
     let DF_NAME: [UInt8] = [0xD2, 0x76, 0x00, 0x00, 0x85, 0x01, 0x01]
 
-    public init {
+    public init() {
         
     }
     
