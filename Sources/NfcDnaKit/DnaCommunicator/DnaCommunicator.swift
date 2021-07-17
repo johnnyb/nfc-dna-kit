@@ -21,16 +21,17 @@ public struct NxpCommandResult {
 }
 
 public class DnaCommunicator {
-    var tag: NFCISO7816Tag?
-    var tagConfiguration: TagConfiguration?
-    var activeKeyNumber: UInt8 = 0
+    public var tag: NFCISO7816Tag?
+    public var tagConfiguration: TagConfiguration?
+    public var activeKeyNumber: UInt8 = 0
     var activeTransactionIdentifier: [UInt8] = [0,0,0,0]
     var commandCounter: Int = 0
     var sessionEncryptionMode: EncryptionMode?
     
-    var trace: Bool = false
-    var debug: Bool = false
+    public var trace: Bool = false
+    public var debug: Bool = false
     
+    // Should move these somewhere else
     let SELECT_MODE_ANY: UInt8 = 0x00
     let SELECT_MODE_CHILD_DF: UInt8 = 0x01
     let SELECT_MODE_CHILD_EF: UInt8 = 0x02
@@ -108,14 +109,14 @@ public class DnaCommunicator {
         }
     }
     
-    func nxpPlainCommand(command: UInt8, header: [UInt8], data: [UInt8]?, completion: @escaping (NxpCommandResult, Error?) -> Void) {
+    public func nxpPlainCommand(command: UInt8, header: [UInt8], data: [UInt8]?, completion: @escaping (NxpCommandResult, Error?) -> Void) {
         nxpNativeCommand(command: command, header: header, data: data) {result, err in
             self.commandCounter += 1
             completion(result, err)
         }
     }
     
-    func nxpMacCommand(command: UInt8, header: [UInt8], data: [UInt8]?, completion: @escaping (NxpCommandResult, Error?) -> Void) {
+    public func nxpMacCommand(command: UInt8, header: [UInt8], data: [UInt8]?, completion: @escaping (NxpCommandResult, Error?) -> Void) {
         let data = data ?? [UInt8]()
         var macInputData: [UInt8] = [
             command,
@@ -160,7 +161,7 @@ public class DnaCommunicator {
         }
     }
     
-    func nxpEncryptedCommand(command: UInt8, header: [UInt8], data: [UInt8]?, completion: @escaping (NxpCommandResult, Error?) -> Void) {
+    public func nxpEncryptedCommand(command: UInt8, header: [UInt8], data: [UInt8]?, completion: @escaping (NxpCommandResult, Error?) -> Void) {
         let data = data ?? [UInt8]()
         if trace {
             Helper.logBytes("Unencryped outgoing data", data)
@@ -176,7 +177,7 @@ public class DnaCommunicator {
         }
     }
     
-    func nxpSwitchedCommand(mode: CommuncationMode, command: UInt8, header: [UInt8], data: [UInt8], completion: @escaping (NxpCommandResult, Error?) -> Void) {
+    public func nxpSwitchedCommand(mode: CommuncationMode, command: UInt8, header: [UInt8], data: [UInt8], completion: @escaping (NxpCommandResult, Error?) -> Void) {
         if mode == CommuncationMode.FULL {
             nxpEncryptedCommand(command: command, header: header, data: data) { result, err in
                 completion(result, err)
@@ -191,11 +192,8 @@ public class DnaCommunicator {
             }
         }
     }
-
     
-    
-    
-    func isoSelectFile(mode: UInt8, fileId: Int, completion: @escaping (Error?) -> Void) {
+    public func isoSelectFile(mode: UInt8, fileId: Int, completion: @escaping (Error?) -> Void) {
         let packet: [UInt8] = [
             0x00, // class
             0xa4, // ISOSelectFile
@@ -212,7 +210,7 @@ public class DnaCommunicator {
         }
     }
     
-    func begin(completion: @escaping (Error?) -> Void) {
+    public func begin(completion: @escaping (Error?) -> Void) {
         // Looks like iOS has already selected the application
         // This is required on Android but fails on iOS,
         // so we're keeping the API but skipping the actual behavior
@@ -224,7 +222,7 @@ public class DnaCommunicator {
         completion(nil)
     }
     
-    func writeTagConfiguration(tagConfiguration: TagConfiguration) {
+    public func writeTagConfiguration(tagConfiguration: TagConfiguration) {
         
     }
 }

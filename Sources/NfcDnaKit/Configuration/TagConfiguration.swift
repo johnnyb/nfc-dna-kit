@@ -8,20 +8,20 @@
 import Foundation
 
 public class TagConfiguration {
-    var name: String?
+    public var name: String?
     
-    var ndefFileConfiguration: FileConfiguration?
-    var privateFileConfiguration: FileConfiguration?
+    public var ndefFileConfiguration: FileConfiguration?
+    public var privateFileConfiguration: FileConfiguration?
 
-    var optLrpEnable: Bool = false
-    var optUseRandomId: Bool = false
-    var optEnableStrongBackModulation: Bool = true
-    var optUseFailCounter: Bool = false
-    var failCounterLimit: Int = 1000
-    var failCounterDecrement: Int = 10
-    var resetSdmCounter: Bool = false
+    public var optLrpEnable: Bool = false
+    public var optUseRandomId: Bool = false
+    public var optEnableStrongBackModulation: Bool = true
+    public var optUseFailCounter: Bool = false
+    public var failCounterLimit: Int = 1000
+    public var failCounterDecrement: Int = 10
+    public var resetSdmCounter: Bool = false
     
-    var keys: [[UInt8]] = [
+    public var keys: [[UInt8]] = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

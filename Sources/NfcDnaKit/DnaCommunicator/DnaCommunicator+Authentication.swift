@@ -9,7 +9,7 @@
 import Foundation
 
 public extension DnaCommunicator {
-    func authenticateEV2First(keyNum: UInt8, completion: @escaping (Bool, Error?) -> Void) -> Void {
+    public func authenticateEV2First(keyNum: UInt8, completion: @escaping (Bool, Error?) -> Void) -> Void {
         guard let keyData = tagConfiguration?.keys[Int(keyNum)] else { completion(false, nil); return }
         
         // STAGE 1 Authentication (pg. 46)
