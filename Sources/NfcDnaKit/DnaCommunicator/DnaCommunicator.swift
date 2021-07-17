@@ -10,12 +10,6 @@ import Foundation
 import CoreNFC
 import CryptoSwift
 
-protocol EncryptionMode {
-    func encryptData(message: [UInt8]) -> [UInt8]
-    func decryptData(message: [UInt8]) -> [UInt8]
-    func generateMac(message: [UInt8]) -> [UInt8]
-}
-
 struct NxpCommandResult {
     var data: [UInt8]
     var statusMajor: UInt8
