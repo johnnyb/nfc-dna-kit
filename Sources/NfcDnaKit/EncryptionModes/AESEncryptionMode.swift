@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AESEncryptionMode : EncryptionMode {
+public class AESEncryptionMode : EncryptionMode {
     weak var communicator: DnaCommunicator?
     let sessionEncryptionKey: [UInt8]
     let sessionMacKey: [UInt8]

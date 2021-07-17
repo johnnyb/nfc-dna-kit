@@ -10,7 +10,7 @@ import Foundation
 import CoreNFC
 import CryptoSwift
 
-struct NxpCommandResult {
+public struct NxpCommandResult {
     var data: [UInt8]
     var statusMajor: UInt8
     var statusMinor: UInt8
@@ -20,7 +20,7 @@ struct NxpCommandResult {
     }
 }
 
-class DnaCommunicator {
+public class DnaCommunicator {
     var tag: NFCISO7816Tag?
     var tagConfiguration: TagConfiguration?
     var activeKeyNumber: UInt8 = 0

@@ -6,7 +6,7 @@
 //
 
 #if !os(macOS)
-extension DnaCommunicator {
+public extension DnaCommunicator {
     func getChipUid(completion: @escaping ([UInt8], Error?) -> Void) {
         nxpEncryptedCommand(command: 0x51, header: [], data: []) { result, err in
             let err = err ?? self.makeErrorIfNotExpectedStatus(result)

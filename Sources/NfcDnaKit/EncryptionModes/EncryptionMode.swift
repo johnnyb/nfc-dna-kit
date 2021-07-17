@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol EncryptionMode {
+public protocol EncryptionMode {
     func encryptData(message: [UInt8]) -> [UInt8]
     func decryptData(message: [UInt8]) -> [UInt8]
     func generateMac(message: [UInt8]) -> [UInt8]

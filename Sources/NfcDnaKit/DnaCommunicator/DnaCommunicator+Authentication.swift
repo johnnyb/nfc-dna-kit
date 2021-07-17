@@ -8,7 +8,7 @@
 #if !os(macOS)
 import Foundation
 
-extension DnaCommunicator {
+public extension DnaCommunicator {
     func authenticateEV2First(keyNum: UInt8, completion: @escaping (Bool, Error?) -> Void) -> Void {
         guard let keyData = tagConfiguration?.keys[Int(keyNum)] else { completion(false, nil); return }
         

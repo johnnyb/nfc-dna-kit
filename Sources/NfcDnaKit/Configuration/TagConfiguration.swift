@@ -6,7 +6,8 @@
 //
 
 import Foundation
-class TagConfiguration {
+
+public class TagConfiguration {
     var name: String?
     
     var ndefFileConfiguration: FileConfiguration?
