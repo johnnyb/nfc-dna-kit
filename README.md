@@ -30,6 +30,7 @@ You also have to do the NFC things to your project, including:
 In your code, you need to initialize a TagReaderSession:
 
 ```
+var session: NFCTagReaderSession?
 override func viewDidAppear(_ animated: Bool) {
     if !NFCTagReaderSession.readingAvailable {
         print("Reading not available")
@@ -50,7 +51,7 @@ func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [NFCTag]) 
     let tag = tags.first!
     print(tag)
     
-    tagReaderSession?.connect(to: tag) { err in
+    session.connect(to: tag) { err in
         if case let .iso7816(isoTag) = tag {
             print("Cast successful")
             let dna = DnaCommunicator()
@@ -66,7 +67,7 @@ func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [NFCTag]) 
                         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
                             
                             // Disconnect and go back to work
-                            self.tagReaderSession?.restartPolling()
+                            session.restartPolling()
                         }
                     }
                 }
