@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class TagConfiguration {
+public class TagConfiguration: Codable {
     public var name: String?
     
     public var ndefFileConfiguration: FileConfiguration?
@@ -31,6 +31,28 @@ public class TagConfiguration {
     
     public init() {
         
+    }
+    
+    public func toJSON() -> String {
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(self)
+            return String(data:data, encoding: .utf8)!
+        } catch {
+            print("Unexpected error encoding to JSON!")
+            return ""
+        }
+    }
+    
+    public static func fromJSON(_ json:String) -> TagConfiguration? {
+        do {
+            let decoder = JSONDecoder()
+            let config = try decoder.decode(TagConfiguration.self, from: json.data(using: .utf8)!)
+            return config
+        } catch {
+            print("Failed decoding JSON")
+            return nil
+        }
     }
 }
 

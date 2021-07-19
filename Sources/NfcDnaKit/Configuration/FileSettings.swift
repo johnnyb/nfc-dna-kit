@@ -6,7 +6,7 @@
 //
 
 import Foundation
-public class FileSettings {
+public class FileSettings: Codable {
     public var sdmEnabled: Bool = false
     public var communicationMode: CommuncationMode = .PLAIN
     public var readPermission: Permission = .ALL

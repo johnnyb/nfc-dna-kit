@@ -1,7 +1,11 @@
     import XCTest
     @testable import NfcDnaKit
-
+    
     final class NfcDnaKitTests: XCTestCase {
+        func testEncoding() {
+            let tagConfig = TagConfiguration()
+            print(tagConfig.toJSON())
+        }
         func testKeyGeneration() {
             let chA = Helper.decodeHexString("6E DA 19 A6 EA 72 2A 07 03 E4 F9 03 59 F3 0E 14")
             let chB = Helper.decodeHexString("B3 20 5A 85 58 1E 76 E2 27 A5 0D AF B0 DC 42 3D")
