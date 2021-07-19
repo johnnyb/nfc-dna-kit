@@ -60,7 +60,7 @@ public class DnaCommunicator {
     
     func makeErrorIfNotExpectedStatus(_ result: NxpCommandResult, error: Error? = nil) -> Error? {
         if result.statusMajor != 0x91 || (result.statusMinor != 0x00 && result.statusMinor != 0xaf) {
-            return Helper.makeError(102, "Unexpected status: \(result.statusMajor) / \(result.statusMinor)")
+            return Helper.makeError(102, "Unexpected status: \(String(format:"%02X", result.statusMajor)) / \(String(format:"%02X", result.statusMinor))")
         }
         return nil
     }

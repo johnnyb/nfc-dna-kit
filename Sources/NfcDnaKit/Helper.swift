@@ -218,7 +218,12 @@ class Helper {
     
     static func crc32(_ data:[UInt8]) -> [UInt8] {
         let val = Checksum.crc32(data)
-        return byteArrayLE(from: val)
+        
+        let basicCRC = byteArrayLE(from: val)
+        let jamXorMask: [UInt8] = [0xff, 0xff, 0xff, 0xff]
+        
+        let jamCRC = Helper.xor(basicCRC, jamXorMask)
+        return jamCRC
     }
     
     static func leftNibble(_ data: UInt8) -> UInt8 {
