@@ -142,7 +142,7 @@ public class DnaCommunicator {
                 return
             }
             
-            let dataBytes = result.data[0...(result.data.count - 9)]
+            let dataBytes = (result.data.count > 8) ? result.data[0...(result.data.count - 9)] : []
             let macBytes = result.data[(result.data.count - 8)...(result.data.count - 1)]
             
             // Check return MAC
