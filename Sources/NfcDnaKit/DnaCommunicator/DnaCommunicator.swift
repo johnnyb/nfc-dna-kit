@@ -197,7 +197,7 @@ public class DnaCommunicator {
         }
     }
     
-    public func isoSelectFile(mode: UInt8, fileId: Int, completion: @escaping (Error?) -> Void) {
+    public func isoSelectFileByFileId(mode: UInt8, fileId: Int, completion: @escaping (Error?) -> Void) {
         let packet: [UInt8] = [
             0x00, // class
             0xa4, // ISOSelectFile
@@ -219,14 +219,14 @@ public class DnaCommunicator {
         // This is required on Android but fails on iOS,
         // so we're keeping the API but skipping the actual behavior
         /*
-        isoSelectFile(mode: SELECT_MODE_CHILD_DF, fileId: DF_FILE_ID) { err in
+        isoSelectFileByFileId(mode: SELECT_MODE_CHILD_DF, fileId: DF_FILE_ID) { err in
             completion(err)
         }
          */
         completion(nil)
     }
     
-    public func writeTagConfiguration(tagConfiguration: TagConfiguration) {
+    public func writeTagConfiguration(tagConfiguration: TagConfiguration, completion: @escaping (Error?) -> Void) {
         
     }
 }

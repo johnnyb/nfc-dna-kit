@@ -32,29 +32,9 @@ public enum FileSpecifier: UInt8 {
 
 public class FileConfiguration {
     public var fileData: [UInt8]?
+    public var fileSettings: FileSettings?
         
-    public var sdmEnabled: Bool = false
-    public var communicationMode: CommuncationMode = .PLAIN
-    public var readPermission: Permission = .ALL
-    public var writePermission: Permission = .ALL
-    public var changePermission: Permission = .ALL
-    public var fileSize: Int?
-    public var sdmOptionUid: Bool = false
-    public var sdmOptionReadCounter: Bool = false
-    public var sdmOptionReadCounterLimit: Bool = false
-    public var sdmOptionEncryptFileData: Bool = false
-    public var sdmOptionUseAscii: Bool = false
-    public var sdmMetaReadPermission: Permission = .ALL
-    public var sdmFileReadPermission: Permission = .ALL
-    public var sdmReadCounterRetrievalPermission: Permission = .ALL
-    public var sdmUidOffset: Int?
-    public var sdmReadCounterOffset: Int?
-    public var sdmPiccDataOffset: Int?
-    public var sdmMacInputOffset: Int?
-    public var sdmMacOffset: Int?
-    public var sdmEncOffset: Int?
-    public var sdmEncLength: Int?
-    public var sdmReadCounterLimit: Int?
+    
      
     //     val SDM_READ_COUNTER_NO_MIRRORING = 16777215
     
