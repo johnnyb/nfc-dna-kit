@@ -9,8 +9,8 @@
 import Foundation
 
 public extension DnaCommunicator {
-    func authenticateEV2First(keyNum: UInt8, completion: @escaping (Bool, Error?) -> Void) -> Void {
-        guard let keyData = tagConfiguration?.keys[Int(keyNum)] else { completion(false, nil); return }
+    func authenticateEV2First(keyNum: UInt8, keyData: [UInt8]? = nil, completion: @escaping (Bool, Error?) -> Void) -> Void {
+        guard let keyData = keyData ?? tagConfiguration?.keys[Int(keyNum)] else { completion(false, nil); return }
         
         // STAGE 1 Authentication (pg. 46)
         nxpNativeCommand(command: 0x71, header: [keyNum, 0x00], data: []) { result, err in
