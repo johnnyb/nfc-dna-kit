@@ -167,11 +167,65 @@ class Helper {
         return (value1 | value2) - (value1 & value2)
     }
     
+    static func xor(_ value1:[UInt8], _ value2: [UInt8]) -> [UInt8] {
+        guard value1.count == value2.count else { return [] }
+        var newValue = [UInt8](repeating: 0, count: value1.count)
+        for idx in 0...(value1.count - 1) {
+            newValue[idx] = Helper.xor(value1[idx], value2[idx])
+        }
+        
+        return newValue
+    }
+    
     static func diversifyKey(key: [UInt8], applicationInfo: [UInt8], identifier: [UInt8]) -> [UInt8] {
         var newData: [UInt8] = [0x01]
         newData.append(contentsOf: identifier)
         newData.append(contentsOf: applicationInfo)
         
         return simpleCMAC(key: key, data: newData)
+    }
+    
+    static func byteArrayLE<T>(from value: T) -> [UInt8] where T: FixedWidthInteger {
+        
+        withUnsafeBytes(of: value.littleEndian, Array.init)
+    }
+    
+    static func byteArrayBE<T>(from value: T) -> [UInt8] where T: FixedWidthInteger {
+        
+        withUnsafeBytes(of: value.bigEndian, Array.init)
+    }
+    
+    static func getBitLSB(_ byte: UInt8, _ index: Int) -> Bool {
+        let mask = UInt8(1 << index)
+        let result = byte & mask
+        return result != 0
+    }
+    
+    static func bytesToInt32LE(_ data:[UInt8]) -> UInt32 {
+        var multiplier: UInt32 = 1
+        var value: UInt32 = 0
+        for x in data {
+            value += UInt32(x) * multiplier
+            multiplier *= 256
+        }
+        return value
+    }
+    
+    
+    static func bytesToIntLE(_ data:[UInt8]) -> Int {
+        return Int(bytesToInt32LE(data))
+    }
+    
+    static func crc32(_ data:[UInt8]) -> [UInt8] {
+        let val = Checksum.crc32(data)
+        return byteArrayLE(from: val)
+    }
+    
+    static func leftNibble(_ data: UInt8) -> UInt8 {
+        return (data >> 4)
+    }
+    
+    static func rightNibble(_ data: UInt8) -> UInt8 {
+        return (data & UInt8(15))
     }
 }
