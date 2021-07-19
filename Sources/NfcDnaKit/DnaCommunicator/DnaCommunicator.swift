@@ -38,11 +38,11 @@ public class DnaCommunicator {
     public let SELECT_MODE_PARENT_DF: UInt8 = 0x03
     public let SELECT_MODE_NAME: UInt8 = 0x04
 
-    public let CC_FILE_NUMBER: Int = 0x01
+    public let CC_FILE_NUMBER: UInt8 = 0x01
     public let CC_FILE_ID: Int = 0xe103
-    public let NDEF_FILE_NUMBER: Int = 0x02
+    public let NDEF_FILE_NUMBER: UInt8 = 0x02
     public let NDEF_FILE_ID: Int = 0xe104
-    public let DATA_FILE_NUMBER: Int = 0x03
+    public let DATA_FILE_NUMBER: UInt8 = 0x03
     public let DATA_FILE_ID: Int = 0xe105
     public let PICC_FILE_ID: Int = 0x3f00
     public let DF_FILE_ID: Int = 0xe110
