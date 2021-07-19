@@ -13,7 +13,7 @@ public class TagConfiguration: Codable {
     public var ndefFileConfiguration: FileConfiguration?
     public var privateFileConfiguration: FileConfiguration?
 
-    public var optLrpEnable: Bool = false
+    public var optEnableLrp: Bool = false
     public var optUseRandomId: Bool = false
     public var optEnableStrongBackModulation: Bool = true
     public var optUseFailCounter: Bool = false
