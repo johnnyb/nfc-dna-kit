@@ -7,6 +7,8 @@
 
 import Foundation
 
+@testable import NfcDnaKit
+
 class DnaCommunicatorForTesting: DnaCommunicator {
     var randomBytes: [UInt8] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     override func getRandomBytes(ofLength: Int) -> [UInt8] {
