@@ -31,10 +31,9 @@ public enum FileSpecifier: UInt8, Codable {
 }
 
 public class FileConfiguration: Codable {
-    public var fileData: [UInt8]?
-    public var fileSettings: FileSettings?
-        
-    
+    public var fileSpecifier: FileSpecifier = .NDEF_FILE
+    public var fileData: [UInt8] = []
+    public var fileSettings = FileSettings()
      
     //     val SDM_READ_COUNTER_NO_MIRRORING = 16777215
     

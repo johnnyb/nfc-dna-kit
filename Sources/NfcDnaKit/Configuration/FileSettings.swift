@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 public class FileSettings: Codable {
     public var sdmEnabled: Bool = false
     public var communicationMode: CommuncationMode = .PLAIN
