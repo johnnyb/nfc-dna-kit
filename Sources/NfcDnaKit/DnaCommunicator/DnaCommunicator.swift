@@ -32,21 +32,21 @@ public class DnaCommunicator {
     public var debug: Bool = false
     
     // Should move these somewhere else
-    public let SELECT_MODE_ANY: UInt8 = 0x00
-    public let SELECT_MODE_CHILD_DF: UInt8 = 0x01
-    public let SELECT_MODE_CHILD_EF: UInt8 = 0x02
-    public let SELECT_MODE_PARENT_DF: UInt8 = 0x03
-    public let SELECT_MODE_NAME: UInt8 = 0x04
+    public static let SELECT_MODE_ANY: UInt8 = 0x00
+    public static let SELECT_MODE_CHILD_DF: UInt8 = 0x01
+    public static let SELECT_MODE_CHILD_EF: UInt8 = 0x02
+    public static let SELECT_MODE_PARENT_DF: UInt8 = 0x03
+    public static let SELECT_MODE_NAME: UInt8 = 0x04
 
-    public let CC_FILE_NUMBER: UInt8 = 0x01
-    public let CC_FILE_ID: Int = 0xe103
-    public let NDEF_FILE_NUMBER: UInt8 = 0x02
-    public let NDEF_FILE_ID: Int = 0xe104
-    public let DATA_FILE_NUMBER: UInt8 = 0x03
-    public let DATA_FILE_ID: Int = 0xe105
-    public let PICC_FILE_ID: Int = 0x3f00
-    public let DF_FILE_ID: Int = 0xe110
-    public let DF_NAME: [UInt8] = [0xD2, 0x76, 0x00, 0x00, 0x85, 0x01, 0x01]
+    public static let CC_FILE_NUMBER: UInt8 = 0x01
+    public static let CC_FILE_ID: Int = 0xe103
+    public static let NDEF_FILE_NUMBER: UInt8 = 0x02
+    public static let NDEF_FILE_ID: Int = 0xe104
+    public static let DATA_FILE_NUMBER: UInt8 = 0x03
+    public static let DATA_FILE_ID: Int = 0xe105
+    public static let PICC_FILE_ID: Int = 0x3f00
+    public static let DF_FILE_ID: Int = 0xe110
+    public static let DF_NAME: [UInt8] = [0xD2, 0x76, 0x00, 0x00, 0x85, 0x01, 0x01]
 
     public init() {
         
