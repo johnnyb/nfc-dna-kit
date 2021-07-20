@@ -9,14 +9,14 @@ import Foundation
 
 public class FileSettings: Codable {
     public var sdmEnabled: Bool = false
-    public var communicationMode: CommuncationMode = .PLAIN
+    public var communicationMode: CommuncationMode = .PLAIN // Should be calculated
     public var readPermission: Permission = .ALL
     public var writePermission: Permission = .ALL
     public var readWritePermission: Permission = .ALL
     public var changePermission: Permission = .ALL
-    public var fileSize: Int?
-    public var sdmOptionUid: Bool = false
-    public var sdmOptionReadCounter: Bool = false
+    public var fileSize: Int? // Should be calculated
+    public var sdmOptionUid: Bool = true
+    public var sdmOptionReadCounter: Bool = true
     public var sdmOptionReadCounterLimit: Bool = false
     public var sdmOptionEncryptFileData: Bool = false
     public var sdmOptionUseAscii: Bool = false
