@@ -58,6 +58,17 @@ public enum FileSpecifier: UInt8, Codable {
             return 128
         }
     }
+    
+    public func displayValue() -> String {
+        switch self {
+        case .CC_FILE:
+            return "CC File"
+        case .NDEF_FILE:
+            return "NDEF File"
+        case .PROPRIETARY:
+            return "Proprietary File"
+        }
+    }
 }
 
 public class FileConfiguration: Codable {
