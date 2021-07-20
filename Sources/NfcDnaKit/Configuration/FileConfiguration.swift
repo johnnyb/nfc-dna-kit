@@ -23,7 +23,7 @@ public enum Permission: UInt8, Codable {
     case ALL = 0xe
     case NONE = 0xf
     
-    func displayValue() -> String {
+    public func displayValue() -> String {
         switch self {
         case .KEY_0:
             return "Key 0"
@@ -48,7 +48,7 @@ public enum FileSpecifier: UInt8, Codable {
     case NDEF_FILE = 2    // 256 bytes
     case PROPRIETARY = 3  // 128 bytes
     
-    func size() -> Int {
+    public func size() -> Int {
         switch self {
         case .CC_FILE:
             return 32
